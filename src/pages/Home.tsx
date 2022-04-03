@@ -17,7 +17,7 @@ export const Home = () => {
 	const handleRoomCreation = async () => {
 		if (!user) await signInWithGoogle()
 
-		navigate("/admin/rooms/new")
+		navigate("/rooms/new")
 	}
 
 	const handleJoinRoom = async (event: FormEvent) => {
