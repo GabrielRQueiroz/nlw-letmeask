@@ -1,6 +1,8 @@
 # NLW LetMeAsk
 
+<div align="center" width='100'>
 ![Logo](./src/assets/images/logo.svg)
+</div>
 
 ## 🧰 Technologies
 
