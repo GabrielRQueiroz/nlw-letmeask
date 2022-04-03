@@ -8,9 +8,9 @@
 
 This project was developed with the following technologies:
 
--  ReactJS
--  Firebase Auth & DB
--  SASS
+- ReactJS
+- Firebase Auth & DB
+- SASS
 
 ## ❓ About
 
