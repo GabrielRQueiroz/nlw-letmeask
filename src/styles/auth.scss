@@ -53,6 +53,28 @@
 		align-items: stretch;
 		text-align: center;
 
+		.google-info {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			gap: 8px;
+
+			margin-bottom: 16px;
+
+			> img {
+				margin-top: 4px;
+				border-radius: 50%;
+				height: 32px;
+			}
+
+			> span {
+				margin: 0;
+				font-size: 0.9rem;
+				color: #29292e;
+			}
+		}
+
 		> img {
 			align-self: center;
 		}
@@ -79,6 +101,23 @@
 			button,
 			input {
 				width: 100%;
+			}
+		}
+
+		span {
+			margin-bottom: 8px;
+			font-size: 14px;
+			color: #737380;
+			font-weight: 500;
+
+			& > button {
+				background: transparent;
+				border: 0;
+				color: #835afd;
+				text-decoration: underline;
+				font-size: 14px;
+				font-weight: 500;
+				cursor: pointer;
 			}
 		}
 
@@ -123,7 +162,7 @@
 		font-size: 14px;
 		color: #a8a8b3;
 
-		margin: 32px 0;
+		margin: 24px 0 16px 0;
 		display: flex;
 		align-items: center;
 

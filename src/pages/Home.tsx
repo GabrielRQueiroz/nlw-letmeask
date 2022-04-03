@@ -6,7 +6,7 @@ import { useAuth } from "hooks/useAuth"
 import { FormEvent, useState } from "react"
 import toast, { Toaster } from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
-import { database } from "services/firebase"
+import { auth, database } from "services/firebase"
 import "styles/auth.scss"
 
 export const Home = () => {
@@ -22,6 +22,7 @@ export const Home = () => {
 
 	const handleJoinRoom = async (event: FormEvent) => {
 		event.preventDefault()
+		if (!user) await signInWithGoogle()
 
 		if (roomCode.trim() === "") {
 			return
@@ -39,7 +40,15 @@ export const Home = () => {
 			return
 		}
 
-		navigate(`/rooms/${roomCode}`)
+		if (roomRef.val().authorId === user?.id) {
+			navigate(`/admin/rooms/${roomCode}`)
+		} else {
+			navigate(`/rooms/${roomCode}`)
+		}
+	}
+
+	const handleChangeAccount = async () => {
+		await auth.signOut().then(() => window.location.reload())
 	}
 
 	return (
@@ -57,6 +66,7 @@ export const Home = () => {
 				<main>
 					<div className="main-content">
 						<img src={logoImg} alt="LetMeAsk" />
+
 						<button onClick={handleRoomCreation} className="create-room">
 							<img src={googleIconImg} alt="Logo do Google" />
 							Crie sua sala com o Google
@@ -66,6 +76,22 @@ export const Home = () => {
 							ou entre em uma sala
 						</div>
 
+						{user && (
+							<>
+								<h4>Conectado como:</h4>
+								<div className="google-info">
+									<img src={user?.avatar} alt={user?.name} />
+									<span>{user?.name}</span>
+								</div>
+
+								<span>
+									Para sair dessa conta,{" "}
+									<button onClick={handleChangeAccount}>
+										clique aqui
+									</button> 👈
+								</span>
+							</>
+						)}
 						<form onSubmit={handleJoinRoom}>
 							<input
 								type="text"
