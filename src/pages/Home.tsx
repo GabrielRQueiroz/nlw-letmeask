@@ -34,7 +34,7 @@ export const Home = () => {
 			return
 		}
 
-		if (!roomRef.val().endedAt) {
+		if (roomRef.val().endedAt) {
 			toast.error("Room already closed")
 			return
 		}
