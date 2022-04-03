@@ -1,14 +1,14 @@
 # NLW LetMeAsk
 
-![Logo]("./src/assets/images/logo.svg")
+![Logo](./src/assets/images/logo.svg)
 
 ## 🧰 Technologies
 
 This project was developed with the following technologies:
 
-- ReactJS
-- Firebase Auth & DB
-- SASS
+-  ReactJS
+-  Firebase Auth & DB
+-  SASS
 
 ## ❓ About
 
